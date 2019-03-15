@@ -1,0 +1,11 @@
+[backends]
+ [backends.apache8808]
+   [backends.apache8808.servers.server1]
+   url = "http://1e.lab.int:8808"
+   weight = 100
+
+[frontends]
+ [frontends.apache8808]
+   backend = "apache8808"
+     [frontends.apache8808.routes.server1]
+     rule = "Host:1e.devopsit.com.ua"

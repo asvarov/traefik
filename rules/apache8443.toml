@@ -1,0 +1,12 @@
+[backends]
+ [backends.apache8443]
+   [backends.apache8443.servers.server1]
+   url = "https://1e.lab.int:8443"
+   weight = 100
+
+[frontends]
+ [frontends.apache8443]
+   entryPoints = ["https"]
+   backend = "apache8443"
+     [frontends.apache8443.routes.server1]
+     rule = "Host:1e.devopsit.com.ua"

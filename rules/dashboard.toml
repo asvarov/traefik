@@ -9,6 +9,5 @@
    backend = "traefik"
    passHostHeader = true
    basicAuth = [ "test:$apr1$W.KBI40I$w29fsOpivdGHlL4e1CmNf/" ]
-   entryPoint = "http"
      [frontends.traefik.routes.traefik]
-     rule = "Host:1e.devopsit.com.ua"
+     rule = "Host:1e.lab.int"

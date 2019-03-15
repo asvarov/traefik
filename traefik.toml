@@ -1,4 +1,4 @@
-logLevel = "DEBUG"
+logLevel = "WARNING"
 [traefikLog]
   filePath = "/var/log/traefik.log"
 [accessLog]
@@ -11,8 +11,20 @@ logLevel = "DEBUG"
   [entryPoints.dashboard]
   address = "127.0.0.1:9999"
 
+  [entryPoints.https]
+  address = ":443"
+  [entryPoints.https.tls]
+      [[entryPoints.https.tls.certificates]]
+        certFile = "/etc/traefik/ssl/fullchain.pem"
+        keyFile = "/etc/traefik/ssl/privkey.pem"
 
-defaultEntryPoints = ["http"]
+      minVersion = "VersionTLS12"
+      cipherSuites = [
+        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+        "TLS_RSA_WITH_AES_256_GCM_SHA384"
+       ]
+
+#defaultEntryPoints = ["http"]
 
 [api]
 entryPoint = "dashboard"

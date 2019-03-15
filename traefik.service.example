@@ -1,0 +1,9 @@
+[Unit]
+Description=Traefik
+
+[Service]
+ExecStart=/usr/local/bin/traefik/traefik_linux-amd64 --configFile=/etc/traefik/traefik.toml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

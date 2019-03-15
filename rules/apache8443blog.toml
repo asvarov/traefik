@@ -1,0 +1,13 @@
+[backends]
+ [backends.apache8443blog]
+   [backends.apache8443blog.servers.server1]
+   sticky = true
+   url = "https://1e.lab.int:8443/blog/"
+   weight = 100
+
+[frontends]
+ [frontends.apache8443blog]
+   entryPoints = ["https"]
+   backend = "apache8443blog"
+     [frontends.apache8443blog.routes.server1]
+     rule = "Host:1e.devopsit.com.ua/blog/"

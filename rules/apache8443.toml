@@ -1,6 +1,7 @@
 [backends]
  [backends.apache8443]
    [backends.apache8443.servers.server1]
+   sticky = true
    url = "https://1e.lab.int:8443"
    weight = 100
 

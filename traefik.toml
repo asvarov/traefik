@@ -1,15 +1,18 @@
 logLevel = "WARNING"
+InsecureSkipVerify = true # HTTPS Internal Server Error
 [traefikLog]
   filePath = "/var/log/traefik.log"
 [accessLog]
   filePath = "/var/log/access.log"
 
+  [entryPoints.dashboard]
+  address = "127.0.0.1:9999"
+
 [entryPoints]
   [entryPoints.http]
   address = ":80"
-
-  [entryPoints.dashboard]
-  address = "127.0.0.1:9999"
+#    [entryPoints.http.redirect]
+#    entryPoints = ["https"]
 
   [entryPoints.https]
   address = ":443"

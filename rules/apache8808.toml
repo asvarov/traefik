@@ -2,7 +2,10 @@
  [backends.apache8808]
    [backends.apache8808.servers.server1]
    url = "http://1e.lab.int:8808"
-   weight = 100
+   weight = 10
+   [backends.apache8808.servers.server2]
+   url = "http://1g.lab.int:8808"
+   weight = 20
 
 [frontends]
  [frontends.apache8808]

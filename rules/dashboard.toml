@@ -1,0 +1,14 @@
+[backends]
+ [backends.traefik]
+   [backends.traefik.servers.server1]
+   url = "http://127.0.0.1:9999"
+   weight = 100
+
+[frontends]
+ [frontends.traefik]
+   backend = "traefik"
+   passHostHeader = true
+   basicAuth = [ "test:$apr1$W.KBI40I$w29fsOpivdGHlL4e1CmNf/" ]
+   entryPoint = "http"
+     [frontends.traefik.routes.traefik]
+     rule = "Host:1e.devopsit.com.ua"

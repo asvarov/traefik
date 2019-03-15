@@ -1,0 +1,23 @@
+logLevel = "DEBUG"
+[traefikLog]
+  filePath = "/var/log/traefik.log"
+[accessLog]
+  filePath = "/var/log/access.log"
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+
+  [entryPoints.dashboard]
+  address = "127.0.0.1:9999"
+
+
+defaultEntryPoints = ["http"]
+
+[api]
+entryPoint = "dashboard"
+dashboard = true
+
+[file]
+directory = "/etc/traefik/rules/"
+watch = true
